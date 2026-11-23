@@ -1,0 +1,359 @@
+<title>Prova do Dia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300;1,6..72,400&display=swap">
+<style>
+/* Layout: editorial limpo em off-white. Muito respiro, imagem dominante, texto pequeno em caixa-alta
+   para a navegação, títulos grandes e leves. As cores CMYK aparecem só como marcadores de seção. */
+:root{
+  --paper:#F6F5F1; --ink:#121212; --muted:#6E6D68; --rule:#DCDAD4; --ph:#E8E6E0;
+  --c:#0086B5; --m:#C2186F; --y:#E2AE00; --y-ink:#8A6A00; --s:#2F8A45;
+  --f-sans:"Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --f-serif:"Newsreader", Georgia, "Times New Roman", serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
+  --maxw:1440px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:900px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+a{color:inherit}
+:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.caps{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:400}
+.mono{font-family:var(--f-mono);font-size:11px;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:7px;height:7px;background:var(--plate);vertical-align:1px;margin-right:8px}
+
+/* Barra superior */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper)}
+.top .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;padding-block:18px}
+.brand{font-weight:500;font-size:13px;letter-spacing:.32em;text-transform:uppercase;white-space:nowrap;text-decoration:none}
+.nav{display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+.nav a{text-decoration:none;padding-block:2px;border-bottom:1px solid transparent}
+.nav a:hover{border-color:var(--ink)}
+#only-saved{border-bottom:1px solid transparent}
+#only-saved[aria-pressed="true"]{border-color:var(--ink)}
+.proto{color:var(--muted);padding-block:0 4px}
+
+/* Abertura: obra de inspiração */
+.dateline{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);padding-block:28px 14px}
+.hero{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);gap:40px;align-items:end;padding-bottom:72px}
+.ph{background:var(--ph);position:relative;max-width:100%}
+.ph span{position:absolute;left:14px;bottom:12px;color:var(--muted)}
+.hero .ph{aspect-ratio:16/10}
+.hero-text{display:grid;gap:18px;padding-bottom:6px;min-width:0}
+.hero h1{font-weight:300;font-size:clamp(38px,5vw,72px);line-height:.98;letter-spacing:-.03em;margin:0;text-wrap:balance}
+.hero dl{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;margin:0}
+.hero dt{color:var(--muted)}
+.hero dd{margin:0}
+.observe{font-family:var(--f-serif);font-style:italic;font-weight:300;font-size:21px;line-height:1.4;margin:0}
+.note{color:var(--muted);font-size:13px;margin:0}
+
+/* Seções */
+section{padding-block:40px 64px;border-top:1px solid var(--ink)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding-top:14px;margin-bottom:36px}
+.sec-head h2{margin:0;font-weight:400;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.sec-head .lede{flex-basis:100%;font-weight:300;font-size:clamp(24px,2.6vw,36px);line-height:1.12;letter-spacing:-.02em;margin:18px 0 0;max-width:22ch}
+.sec-head .side{color:var(--muted)}
+
+/* Itens */
+.grid{display:grid;gap:40px 28px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.item{display:flex;flex-direction:column;gap:10px;min-width:0}
+.item.read h3{color:var(--muted)}
+.item-top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.tag{color:var(--plate-ink,var(--plate))}
+.save{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.save:hover,.save[aria-pressed="true"]{color:var(--ink)}
+.save[aria-pressed="true"]::before{content:"";display:inline-block;width:6px;height:6px;background:var(--plate);margin-right:6px;vertical-align:1px}
+.item h3{margin:0;font-weight:400;font-size:20px;line-height:1.22;letter-spacing:-.01em;text-wrap:balance}
+.item .resumo{margin:0;font-family:var(--f-serif);font-size:17px;line-height:1.45;color:#2b2b29}
+.meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted)}
+details summary{cursor:pointer;list-style:none;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:inline-block;border-bottom:1px solid var(--ink);padding-bottom:1px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:" +"}
+details[open] summary::after{content:" –"}
+.deep{padding-top:14px;display:grid;gap:10px}
+.deep p{margin:0;font-family:var(--f-serif);font-size:16px}
+.deep h4{margin:0;color:var(--muted)}
+.terms{display:flex;flex-wrap:wrap;gap:4px 14px;color:var(--muted)}
+.src-link{font-size:13px}
+.src-pending{color:var(--muted);font-size:13px}
+
+/* Manchete */
+.lead{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:56px}
+.lead .ph{aspect-ratio:3/2}
+.lead h3{font-weight:300;font-size:clamp(28px,3.2vw,44px);line-height:1.05;letter-spacing:-.025em}
+.lead .resumo{font-size:19px}
+
+/* Referências em formato de vitrine */
+.shelf .ph{aspect-ratio:3/4}
+
+/* Biblioteca e Bolhas */
+.week{display:flex;gap:6px 22px;flex-wrap:wrap;margin-bottom:40px;color:var(--muted)}
+.week span.on{color:var(--ink);border-bottom:1px solid var(--plate);padding-bottom:2px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:56px}
+.pair > div{display:grid;gap:12px;align-content:start;min-width:0}
+.pair h3{margin:0;font-weight:300;font-size:clamp(28px,3vw,40px);line-height:1.05;letter-spacing:-.025em}
+.pair p{margin:0;font-family:var(--f-serif);font-size:18px;line-height:1.5;max-width:58ch}
+.pair blockquote{margin:0;font-family:var(--f-serif);font-style:italic;font-weight:300;font-size:clamp(20px,2vw,26px);line-height:1.4;max-width:34ch}
+.empty-note{color:var(--muted);font-family:var(--f-serif);font-style:italic}
+
+footer{border-top:1px solid var(--ink)}
+footer .wrap{padding-block:24px 56px;display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));color:var(--muted);font-size:13px}
+footer .caps{color:var(--ink);display:block;margin-bottom:6px}
+
+@media (max-width:900px){
+  .top .wrap{grid-template-columns:1fr auto;gap:12px 16px}
+  .nav{grid-column:1/3;grid-row:2;justify-content:flex-start;gap:18px;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}
+  .nav a{flex:none}
+  .hero,.lead,.pair{grid-template-columns:1fr;gap:24px}
+  .hero .ph{aspect-ratio:4/5}
+}
+@media (prefers-reduced-motion:no-preference){
+  .ph{transition:opacity .3s}
+  .item:hover .ph{opacity:.85}
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">Prova do Dia</a>
+    <nav class="nav caps" aria-label="Seções">
+      <a href="#noticias" style="--plate:var(--c)"><i class="dot"></i>Notícias</a>
+      <a href="#referencias" style="--plate:var(--m)"><i class="dot"></i>Referências</a>
+      <a href="#biblioteca" style="--plate:var(--y)"><i class="dot"></i>Biblioteca</a>
+      <a href="#bolhas" style="--plate:var(--s)"><i class="dot"></i>Outras Bolhas</a>
+    </nav>
+    <button type="button" id="only-saved" class="caps" aria-pressed="false">Salvos (<span id="saved-count">0</span>)</button>
+  </div>
+  <div class="wrap proto caps">Protótipo · notícias e fontes de exemplo</div>
+</header>
+
+<main class="wrap" id="inicio">
+  <div class="dateline caps"><span id="ed-date"></span><span id="ed-num"></span><span class="mono" id="ed-total"></span></div>
+  <article class="hero" id="hero"></article>
+
+  <section id="noticias" style="--plate:var(--c)">
+    <div class="sec-head"><h2><i class="dot"></i>Notícias</h2><span class="mono side" id="tc-noticias"></span>
+      <p class="lede">Design, direção de arte, vídeo e tipografia, coletados toda madrugada.</p></div>
+    <article class="lead" id="lead"></article>
+    <div class="grid" id="list-noticias"></div>
+  </section>
+
+  <section id="referencias" style="--plate:var(--m)">
+    <div class="sec-head"><h2><i class="dot"></i>Referências</h2><span class="mono side" id="tc-referencias"></span>
+      <p class="lede">Trabalhos para observar com calma.</p></div>
+    <div class="grid shelf" id="list-referencias"></div>
+  </section>
+
+  <section id="biblioteca" style="--plate:var(--y);--plate-ink:var(--y-ink)">
+    <div class="sec-head"><h2><i class="dot"></i>Biblioteca</h2><span class="mono side" id="tc-biblioteca"></span>
+      <p class="lede" id="lede-biblioteca"></p></div>
+    <div class="week caps" id="week-temas" aria-label="Temas da semana"></div>
+    <div class="pair" id="classic"></div>
+    <div class="grid" id="list-biblioteca"></div>
+  </section>
+
+  <section id="bolhas" style="--plate:var(--s)">
+    <div class="sec-head"><h2><i class="dot"></i>Outras Bolhas</h2><span class="mono side" id="tc-bolhas"></span>
+      <p class="lede" id="lede-bolhas"></p></div>
+    <div class="week caps" id="week-regioes" aria-label="Rodízio de regiões"></div>
+    <div class="pair" id="bolha-base"></div>
+    <div class="grid" id="list-bolhas"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><span class="caps">Atualização diária</span>Automática, às 05:00, pelo GitHub. Custo: 0 tokens. <span id="ft-fontes"></span></div>
+    <div><span class="caps">Atualizações com IA</span>Reabastecer o banco curado ou gerar a edição de domingo só acontece depois da sua aprovação.</div>
+    <div><span class="caps">Arquivo</span>Edições anteriores ficam guardadas por data. Disponível na versão final.</div>
+  </div>
+</footer>
+
+<script>
+const EDICAO = {
+  numero: 1,
+  data: "Quarta-feira, 18 de novembro de 2026",
+  diaSemana: 2, // 0 = segunda
+  semanaRegiao: 1,
+  fontesAtivas: 42,
+  inspiracao: {
+    titulo:"A Grande Onda de Kanagawa",
+    autor:"Katsushika Hokusai", ano:"c. 1830–32", tecnica:"Xilogravura policromática",
+    acervo:"Acervo aberto de museu · domínio público",
+    observe:"A onda em primeiro plano emoldura o monte Fuji ao fundo. O menor elemento da cena é o assunto.",
+    nota:"Na versão final, a imagem em alta resolução vem da API aberta do museu, com link para o acervo."
+  },
+  manchete: {
+    id:"n0", tag:"Vídeo & motion",
+    titulo:"Editores de vídeo apostam em legendagem automática em português",
+    resumo:"Ferramentas de transcrição melhoraram para o português brasileiro e começam a mudar o fluxo de pós-produção de conteúdo para redes.",
+    fonte:"Fonte de exemplo · vídeo", min:6,
+    trecho:"Aqui entra o trecho mais longo publicado pela fonte no feed: o primeiro ou os dois primeiros parágrafos da matéria original, para você decidir se vale abrir o link.",
+    termos:["legendagem","pós-produção","transcrição"], url:""
+  },
+  noticias: [
+    {id:"n1", tag:"Design", titulo:"Identidades visuais voltam a usar letras desenhadas à mão", resumo:"Estúdios trocam famílias genéricas por lettering próprio para marcas pequenas e culturais.", fonte:"Fonte de exemplo · design", min:4, trecho:"Trecho estendido da fonte, exibido ao aprofundar.", termos:["lettering","identidade visual"]},
+    {id:"n2", tag:"Direção de arte", titulo:"Campanhas de moda saem do estúdio e vão para locações comuns", resumo:"Cozinhas, pontos de ônibus e lojas de bairro viram cenário de editoriais de grandes marcas.", fonte:"Fonte de exemplo · publicidade", min:5, trecho:"Trecho estendido da fonte, exibido ao aprofundar.", termos:["locação","casting","editorial"]},
+    {id:"n3", tag:"Vídeo & motion", titulo:"Por que as aberturas de série estão ficando mais curtas", resumo:"Com o botão de pular abertura, estúdios de motion condensam a ideia em menos de 30 segundos.", fonte:"Fonte de exemplo · motion", min:7, trecho:"Trecho estendido da fonte, exibido ao aprofundar.", termos:["title sequence","ritmo"]},
+    {id:"n4", tag:"Tipografia", titulo:"Fundições independentes ampliam suporte a línguas indígenas", resumo:"Novas famílias incluem diacríticos usados em línguas como guarani e nheengatu.", fonte:"Fonte de exemplo · tipografia", min:4, trecho:"Trecho estendido da fonte, exibido ao aprofundar.", termos:["diacríticos","fundição"]},
+    {id:"n5", tag:"Ferramentas", titulo:"Fluxos de color grading começam a migrar para a nuvem", resumo:"Projetos compartilhados permitem que colorista e editor trabalhem na mesma timeline à distância.", fonte:"Fonte de exemplo · ferramentas", min:3, trecho:"Trecho estendido da fonte, exibido ao aprofundar.", termos:["color grading","fluxo remoto"]}
+  ],
+  referencias: [
+    {id:"r1", img:true, tag:"Abertura", titulo:"Abertura construída só com tipografia cinética", resumo:"Nenhuma imagem filmada: o ritmo da montagem vem do movimento das letras.", fonte:"Fonte de exemplo · títulos", min:3, trecho:"Trecho da fonte com créditos e ficha.", termos:["kinetic type","ritmo"]},
+    {id:"r2", img:true, tag:"Campanha", titulo:"Cartazes lambe-lambe como mídia de lançamento", resumo:"Uma marca de música troca o digital por papel colado na rua e fotografa o resultado.", fonte:"Fonte de exemplo · publicidade", min:3, trecho:"Trecho da fonte com créditos e ficha.", termos:["OOH","impressão"]},
+    {id:"r3", img:true, tag:"Fotografia", titulo:"Ensaio feito só com a luz da última hora do dia", resumo:"Uma série inteira com a mesma temperatura de cor, pensada como paleta.", fonte:"Fonte de exemplo · fotografia", min:4, trecho:"Trecho da fonte com créditos e ficha.", termos:["golden hour","paleta"]},
+    {id:"r4", img:true, tag:"Editorial", titulo:"Revista independente diagramada em uma única família tipográfica", resumo:"Hierarquia construída só com tamanho, peso e espaço em branco.", fonte:"Fonte de exemplo · editorial", min:3, trecho:"Trecho da fonte com créditos e ficha.", termos:["diagramação","hierarquia"]}
+  ],
+  temas:["Antropologia visual","História da arte","Roteiro e storytelling","Arquitetura","Arte contemporânea","Leitura longa","Leitura longa"],
+  temasCurto:["Seg · Antropologia visual","Ter · História da arte","Qua · Roteiro","Qui · Arquitetura","Sex · Arte contemporânea","Sáb e dom · Leitura longa"],
+  classico: {
+    obra:"Manual do roteiro", autor:"Syd Field", ano:"1979 · edição brasileira pela Objetiva",
+    porque:"Foi um dos livros que popularizaram a estrutura em três atos e os pontos de virada. Mesmo para quem edita e não escreve, ajuda a enxergar onde uma história muda de direção, e é ali que o corte costuma fazer diferença."
+  },
+  conceito: {
+    nome:"Efeito Kuleshov",
+    texto:"O mesmo rosto neutro, intercalado com imagens diferentes, parece expressar fome, tristeza ou desejo. O sentido nasce do corte, não da imagem isolada."
+  },
+  biblioteca: [
+    {id:"b1", tag:"Artigo · acesso aberto", titulo:"Montagem e memória no documentário brasileiro recente", resumo:"Como a montagem com material de arquivo constrói versões do passado.", fonte:"Revista acadêmica de exemplo", min:25, trecho:"Resumo (abstract) publicado pela revista.", termos:["documentário","arquivo","montagem"]},
+    {id:"b2", tag:"Ensaio", titulo:"O storyboard como forma de pensar, não só de planejar", resumo:"Um ensaio sobre o desenho como etapa de criação da narrativa, antes da câmera.", fonte:"Revista de ensaios de exemplo", min:12, trecho:"Primeiros parágrafos do ensaio.", termos:["storyboard","pré-produção"]}
+  ],
+  regioes:["Povos indígenas das Américas","África e diáspora","Mundo árabe","Ásia","Oceania e Pacífico","América Latina"],
+  bolhaBase: {
+    nome:"Adinkra",
+    origem:"Povo Akan · Gana e Costa do Marfim",
+    texto:"Conjunto de símbolos gráficos estampados em tecidos, cerâmica e arquitetura. Cada símbolo carrega um provérbio ou uma ideia.",
+    exemplo:"Sankofa, o pássaro que olha para trás, quer dizer algo como \"voltar e buscar o que ficou\". Um sistema de ícones que carrega significado, não só forma."
+  },
+  bolhas: [
+    {id:"o1", tag:"Arquivo", titulo:"Coletivo da diáspora abre arquivo digital de cartazes", resumo:"Mais de mil cartazes de shows e manifestações digitalizados e liberados para pesquisa.", fonte:"Fonte de exemplo · cultura", min:5, trecho:"Trecho estendido da fonte.", termos:["cartaz","arquivo"]},
+    {id:"o2", tag:"Fotografia", titulo:"Série documenta tecidos estampados em mercados da África Ocidental", resumo:"Padrões, cores e nomes populares das estampas, catalogados por uma fotógrafa local.", fonte:"Fonte de exemplo · fotografia", min:6, trecho:"Trecho estendido da fonte.", termos:["estamparia","padrão"]}
+  ]
+};
+
+const tc = m => "00:" + String(m).padStart(2,"0") + ":00";
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const $ = id => document.getElementById(id);
+const sum = arr => arr.reduce((a,b)=>a+b.min,0);
+
+let salvos = new Set();
+try { salvos = new Set(JSON.parse(localStorage.getItem("prova-salvos") || "[]")); } catch(e) {}
+const persist = () => { try { localStorage.setItem("prova-salvos", JSON.stringify([...salvos])); } catch(e) {} };
+
+function deep(it){
+  let h = "";
+  if (it.trecho) h += `<h4 class="caps">Trecho da fonte</h4><p>${esc(it.trecho)}</p>`;
+  if (it.termos) h += `<div class="terms caps">${it.termos.map(t=>`<span>${esc(t)}</span>`).join("")}</div>`;
+  h += it.url ? `<a class="src-link" href="${esc(it.url)}" target="_blank" rel="noopener">Ler na fonte ↗</a>`
+              : `<span class="src-pending">Link da matéria original entra aqui</span>`;
+  return `<details><summary>Aprofundar</summary><div class="deep">${h}</div></details>`;
+}
+function saveBtn(id){
+  const on = salvos.has(id);
+  return `<button type="button" class="save" data-save="${esc(id)}" aria-pressed="${on}">${on ? "Salvo" : "Salvar"}</button>`;
+}
+function body(it){
+  return `<div class="item-top caps"><span class="tag">${esc(it.tag)}</span>${saveBtn(it.id)}</div>
+    <h3>${esc(it.titulo)}</h3>
+    <p class="resumo">${esc(it.resumo)}</p>
+    <div class="meta"><span class="caps">${esc(it.fonte)}</span><span class="mono">TC ${tc(it.min)}</span></div>
+    ${deep(it)}`;
+}
+function item(it){
+  return `<article class="item" data-id="${esc(it.id)}">
+    ${it.img ? `<div class="ph"><span class="caps">Imagem</span></div>` : ""}
+    ${body(it)}
+  </article>`;
+}
+
+function render(){
+  const E = EDICAO;
+  $("ed-num").textContent = "Edição " + String(E.numero).padStart(3,"0");
+  $("ed-date").textContent = E.data;
+  const total = 3 + E.manchete.min + sum(E.noticias) + sum(E.referencias) + sum(E.biblioteca) + sum(E.bolhas) + 8;
+  $("ed-total").textContent = "Leitura completa TC " + tc(total);
+  $("ft-fontes").textContent = E.fontesAtivas + " fontes ativas (exemplo).";
+
+  const f = E.inspiracao;
+  $("hero").innerHTML = `<div class="ph"><span class="caps">Obra do dia · acervo aberto</span></div>
+    <div class="hero-text">
+      <span class="caps" style="color:var(--muted)">Obra de inspiração</span>
+      <h1>${esc(f.titulo)}</h1>
+      <dl class="caps"><dt>Autor</dt><dd>${esc(f.autor)}</dd><dt>Data</dt><dd>${esc(f.ano)}</dd><dt>Técnica</dt><dd>${esc(f.tecnica)}</dd><dt>Acervo</dt><dd>${esc(f.acervo)}</dd></dl>
+      <p class="observe">${esc(f.observe)}</p>
+      <p class="note">${esc(f.nota)}</p>
+    </div>`;
+
+  const m = E.manchete;
+  $("lead").innerHTML = `<div class="ph"><span class="caps">Imagem da matéria</span></div>
+    <div class="item" data-id="${esc(m.id)}">${body(m)}</div>`;
+  $("list-noticias").innerHTML = E.noticias.map(item).join("");
+  $("tc-noticias").textContent = (E.noticias.length+1) + " notas · TC " + tc(sum(E.noticias)+m.min);
+
+  $("list-referencias").innerHTML = E.referencias.map(item).join("");
+  $("tc-referencias").textContent = E.referencias.length + " itens · TC " + tc(sum(E.referencias));
+
+  const today = Math.min(E.diaSemana, 5);
+  $("week-temas").innerHTML = E.temasCurto.map((t,i)=>`<span class="${i===today?"on":""}">${esc(t)}</span>`).join("");
+  $("lede-biblioteca").textContent = "Hoje: " + E.temas[E.diaSemana].toLowerCase() + ".";
+  const c = E.classico, k = E.conceito;
+  $("classic").innerHTML = `<div><span class="caps tag">Clássico da semana</span><h3>${esc(c.obra)}</h3>
+      <span class="caps" style="color:var(--muted)">${esc(c.autor)} · ${esc(c.ano)}</span><p>${esc(c.porque)}</p></div>
+    <div><span class="caps tag">Conceito do dia · ${esc(k.nome)}</span><blockquote>${esc(k.texto)}</blockquote></div>`;
+  $("list-biblioteca").innerHTML = E.biblioteca.map(item).join("");
+  $("tc-biblioteca").textContent = E.biblioteca.length + " leituras · TC " + tc(sum(E.biblioteca));
+
+  $("week-regioes").innerHTML = E.regioes.map((r,i)=>`<span class="${i===E.semanaRegiao?"on":""}">${esc(r)}</span>`).join("");
+  $("lede-bolhas").textContent = "Esta semana: " + E.regioes[E.semanaRegiao].toLowerCase() + ".";
+  const b = E.bolhaBase;
+  $("bolha-base").innerHTML = `<div><span class="caps tag">Referência de base</span><h3>${esc(b.nome)}</h3>
+      <span class="caps" style="color:var(--muted)">${esc(b.origem)}</span><p>${esc(b.texto)}</p></div>
+    <div><span class="caps tag">Para guardar</span><blockquote>${esc(b.exemplo)}</blockquote></div>`;
+  $("list-bolhas").innerHTML = E.bolhas.map(item).join("");
+  $("tc-bolhas").textContent = E.bolhas.length + " notas · TC " + tc(sum(E.bolhas));
+
+  $("saved-count").textContent = salvos.size;
+}
+render();
+
+let onlySaved = false;
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-save]");
+  if (!b) return;
+  const id = b.dataset.save;
+  salvos.has(id) ? salvos.delete(id) : salvos.add(id);
+  persist();
+  const on = salvos.has(id);
+  b.setAttribute("aria-pressed", on); b.textContent = on ? "Salvo" : "Salvar";
+  $("saved-count").textContent = salvos.size;
+  if (onlySaved) applyFilter();
+});
+document.addEventListener("toggle", e => {
+  if (e.target.tagName === "DETAILS" && e.target.open) e.target.closest("[data-id]")?.classList.add("read");
+}, true);
+
+function applyFilter(){
+  document.querySelectorAll("[data-id]").forEach(el => el.hidden = onlySaved && !salvos.has(el.dataset.id));
+  $("hero").hidden = onlySaved;
+  ["classic","bolha-base","week-temas","week-regioes"].forEach(id => $(id).hidden = onlySaved);
+  $("lead").querySelector(".ph").hidden = onlySaved;
+  document.querySelectorAll("section").forEach(sec => {
+    let note = sec.querySelector(".empty-note");
+    const any = [...sec.querySelectorAll("[data-id]")].some(el => !el.hidden);
+    if (onlySaved && !any){
+      if (!note){ note = document.createElement("p"); note.className = "empty-note"; note.textContent = "Nada salvo nesta seção. Use Salvar nos itens para montar seu acervo."; sec.appendChild(note); }
+      note.hidden = false;
+    } else if (note) note.hidden = true;
+  });
+}
+$("only-saved").addEventListener("click", e => {
+  onlySaved = !onlySaved;
+  e.currentTarget.setAttribute("aria-pressed", onlySaved);
+  applyFilter();
+});
+</script>

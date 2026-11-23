@@ -1,0 +1,36 @@
+[
+  {"nome": "It's Nice That", "secao": "noticias", "tag": "Design", "url": "https://www.itsnicethat.com/articles.rss"},
+  {"nome": "Creative Boom", "secao": "noticias", "tag": "Design", "url": "https://www.creativeboom.com/feed/"},
+  {"nome": "Dezeen", "secao": "noticias", "tag": "Design e arquitetura", "url": "https://www.dezeen.com/feed/"},
+  {"nome": "Designboom", "secao": "noticias", "tag": "Design e arquitetura", "url": "https://www.designboom.com/feed/"},
+  {"nome": "B9", "secao": "noticias", "tag": "Criação · Brasil", "url": "https://www.b9.com.br/feed/"},
+  {"nome": "Motionographer", "secao": "noticias", "tag": "Vídeo & motion", "url": "https://motionographer.com/feed/"},
+  {"nome": "No Film School", "secao": "noticias", "tag": "Vídeo & cinema", "url": "https://nofilmschool.com/rss.xml"},
+  {"nome": "CineD", "secao": "noticias", "tag": "Ferramentas", "url": "https://www.cined.com/feed/"},
+  {"nome": "Filmmaker Magazine", "secao": "noticias", "tag": "Vídeo & cinema", "url": "https://filmmakermagazine.com/feed/"},
+  {"nome": "Hyperallergic", "secao": "noticias", "tag": "Arte", "url": "https://hyperallergic.com/feed/"},
+  {"nome": "ArchDaily Brasil", "secao": "noticias", "tag": "Arquitetura", "url": "https://www.archdaily.com.br/br/feed"},
+  {"nome": "seLecT", "secao": "noticias", "tag": "Arte contemporânea", "url": "https://select.art.br/feed/"},
+
+  {"nome": "Abduzeedo", "secao": "referencias", "tag": "Design", "url": "https://abduzeedo.com/rss.xml"},
+  {"nome": "Colossal", "secao": "referencias", "tag": "Arte", "url": "https://www.thisiscolossal.com/feed/"},
+  {"nome": "Booooooom", "secao": "referencias", "tag": "Arte e fotografia", "url": "https://www.booooooom.com/feed/"},
+  {"nome": "Stash", "secao": "referencias", "tag": "Motion", "url": "https://www.stashmedia.tv/feed/"},
+  {"nome": "Art of the Title", "secao": "referencias", "tag": "Abertura", "url": "https://www.artofthetitle.com/feed/", "atemporal": true},
+  {"nome": "Directors Notes", "secao": "referencias", "tag": "Direção", "url": "https://directorsnotes.com/feed/"},
+  {"nome": "Short of the Week", "secao": "referencias", "tag": "Curta", "url": "https://www.shortoftheweek.com/feed/"},
+  {"nome": "Revista ZUM", "secao": "referencias", "tag": "Fotografia", "url": "https://revistazum.com.br/feed/"},
+
+  {"nome": "Aeon", "secao": "biblioteca", "tag": "Ensaio", "url": "https://aeon.co/feed.rss"},
+  {"nome": "Public Domain Review", "secao": "biblioteca", "tag": "História da arte", "url": "https://publicdomainreview.org/rss.xml", "atemporal": true, "tema": "História da arte"},
+  {"nome": "Revista GIS (USP)", "secao": "biblioteca", "tag": "Antropologia visual", "url": "https://www.revistas.usp.br/gis/gateway/plugin/WebFeedGatewayPlugin/rss2", "atemporal": true, "tema": "Antropologia visual"},
+  {"nome": "ARS (USP)", "secao": "biblioteca", "tag": "Arte contemporânea", "url": "https://www.revistas.usp.br/ars/gateway/plugin/WebFeedGatewayPlugin/rss2", "atemporal": true, "tema": "Arte contemporânea"},
+  {"nome": "Significação (USP)", "secao": "biblioteca", "tag": "Cinema e audiovisual", "url": "https://www.revistas.usp.br/significacao/gateway/plugin/WebFeedGatewayPlugin/rss2", "atemporal": true, "tema": "Roteiro e storytelling"},
+
+  {"nome": "Africa Is a Country", "secao": "bolhas", "tag": "África e diáspora", "url": "https://africasacountry.com/feed"},
+  {"nome": "ArtAsiaPacific", "secao": "bolhas", "tag": "Ásia e Pacífico", "url": "https://artasiapacific.com/feed"},
+  {"nome": "Amazônia Real", "secao": "bolhas", "tag": "Povos indígenas", "url": "https://amazoniareal.com.br/feed/"},
+  {"nome": "ICT News", "secao": "bolhas", "tag": "Povos indígenas", "url": "https://ictnews.org/feed"},
+  {"nome": "Remezcla", "secao": "bolhas", "tag": "América Latina", "url": "https://remezcla.com/feed/"},
+  {"nome": "Nonada", "secao": "bolhas", "tag": "Brasil", "url": "https://www.nonada.com.br/feed/"}
+]

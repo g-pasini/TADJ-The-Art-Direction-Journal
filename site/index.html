@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TADJ · The Art Direction Journal</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,300;1,6..72,400&display=swap">
+<link rel="stylesheet" href="estilo.css">
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./">TADJ</a>
+    <nav class="nav caps" aria-label="Seções">
+      <a href="#noticias" style="--plate:var(--c)"><i class="dot"></i>Notícias</a>
+      <a href="#referencias" style="--plate:var(--m)"><i class="dot"></i>Referências</a>
+      <a href="#biblioteca" style="--plate:var(--y)"><i class="dot"></i>Biblioteca</a>
+      <a href="#bolhas" style="--plate:var(--s)"><i class="dot"></i>Outras Bolhas</a>
+    </nav>
+    <button type="button" id="only-saved" class="caps" aria-pressed="false">Salvos (<span id="saved-count">0</span>)</button>
+  </div>
+</header>
+
+<main class="wrap" id="inicio">
+  <div class="dateline caps"><span id="ed-date">Carregando a edição…</span><span id="ed-num"></span><span class="mono" id="ed-total"></span></div>
+  <article class="hero" id="hero"></article>
+
+  <section id="noticias" style="--plate:var(--c)">
+    <div class="sec-head"><h2><i class="dot"></i>Notícias</h2><span class="mono side" id="tc-noticias"></span>
+      <p class="lede">Design, direção de arte, vídeo e arquitetura, coletados toda madrugada.</p></div>
+    <article class="lead" id="lead"></article>
+    <div class="grid" id="list-noticias"></div>
+  </section>
+
+  <section id="referencias" style="--plate:var(--m)">
+    <div class="sec-head"><h2><i class="dot"></i>Referências</h2><span class="mono side" id="tc-referencias"></span>
+      <p class="lede">Trabalhos para observar com calma.</p></div>
+    <div class="grid shelf" id="list-referencias"></div>
+  </section>
+
+  <section id="biblioteca" style="--plate:var(--y);--plate-ink:var(--y-ink)">
+    <div class="sec-head"><h2><i class="dot"></i>Biblioteca</h2><span class="mono side" id="tc-biblioteca"></span>
+      <p class="lede" id="lede-biblioteca"></p></div>
+    <div class="week caps" id="week-temas" aria-label="Temas da semana"></div>
+    <div class="pair" id="classic"></div>
+    <div class="grid" id="list-biblioteca"></div>
+  </section>
+
+  <section id="bolhas" style="--plate:var(--s)">
+    <div class="sec-head"><h2><i class="dot"></i>Outras Bolhas</h2><span class="mono side" id="tc-bolhas"></span>
+      <p class="lede" id="lede-bolhas"></p></div>
+    <div class="week caps" id="week-regioes" aria-label="Rodízio de regiões"></div>
+    <div class="pair" id="bolha-base"></div>
+    <div class="grid" id="list-bolhas"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><span class="caps">Atualização diária</span>Automática, às 05:00, pelo GitHub. Custo: 0 tokens. <span id="ft-fontes"></span></div>
+    <div><span class="caps">Atualizações com IA</span>Reabastecer o banco curado ou gerar uma edição especial só acontece depois da sua aprovação.</div>
+    <div><span class="caps">Arquivo</span><div class="archive" id="archive"></div></div>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

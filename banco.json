@@ -1,0 +1,49 @@
+{
+  "_sobre": "Banco curado pequeno e atemporal. Cada lista roda por semana. Para aumentar, peça ao Claude (gasta tokens, exige sua aprovação).",
+  "temas": [
+    {"dia": "Segunda", "tema": "Antropologia visual", "classicos": [
+      {"obra": "Balinese Character: A Photographic Analysis", "autor": "Gregory Bateson e Margaret Mead", "ano": "1942",
+       "porque": "Um dos primeiros estudos a usar a fotografia em série como método de pesquisa, e não como ilustração. Centenas de imagens organizadas em pranchas para mostrar gestos, rotinas e relações. É uma aula de sequência e edição de imagem."}],
+     "conceitos": [{"nome": "Antropologia compartilhada", "texto": "Proposta do cineasta Jean Rouch: mostrar o filme às pessoas filmadas e incorporar a reação delas ao trabalho. A câmera deixa de ser só observadora e vira parte da relação."}]},
+    {"dia": "Terça", "tema": "História da arte", "classicos": [
+      {"obra": "Modos de Ver", "autor": "John Berger", "ano": "1972 · série da BBC e livro",
+       "porque": "Mostra como o contexto, a reprodução e a legenda mudam o que vemos numa imagem. Curto, direto e ainda muito atual para quem trabalha com publicidade e direção de arte."}],
+     "conceitos": [{"nome": "Sfumato", "texto": "Técnica de transições suaves entre luz e sombra, sem contornos marcados, associada a Leonardo da Vinci. Os limites das formas se dissolvem em névoa."}]},
+    {"dia": "Quarta", "tema": "Roteiro e storytelling", "classicos": [
+      {"obra": "Manual do roteiro", "autor": "Syd Field", "ano": "1979",
+       "porque": "Popularizou a estrutura em três atos e os pontos de virada. Mesmo para quem edita e não escreve, ajuda a enxergar onde uma história muda de direção, e é ali que o corte costuma fazer diferença."}],
+     "conceitos": [{"nome": "Efeito Kuleshov", "texto": "O mesmo rosto neutro, intercalado com imagens diferentes, parece expressar fome, tristeza ou desejo. O sentido nasce do corte, não da imagem isolada."}]},
+    {"dia": "Quinta", "tema": "Arquitetura", "classicos": [
+      {"obra": "Aprendendo com Las Vegas", "autor": "Robert Venturi, Denise Scott Brown e Steven Izenour", "ano": "1972",
+       "porque": "Leva a sério a paisagem comercial, as placas e a arquitetura feita para ser vista de carro. É um livro sobre arquitetura como comunicação, muito próximo do trabalho de quem faz design gráfico."}],
+     "conceitos": [{"nome": "Pato e galpão decorado", "texto": "Dois tipos de prédio descritos em Aprendendo com Las Vegas: o pato, em que a forma inteira é o símbolo, e o galpão decorado, uma caixa comum com a mensagem aplicada na fachada."}]},
+    {"dia": "Sexta", "tema": "Arte contemporânea", "classicos": [
+      {"obra": "Estética relacional", "autor": "Nicolas Bourriaud", "ano": "1998",
+       "porque": "Discute obras em que o material principal são as relações entre as pessoas: um jantar, um encontro, uma troca. Ajuda a pensar experiências e ativações, não só objetos."}],
+     "conceitos": [{"nome": "Readymade", "texto": "Objeto comum escolhido pelo artista e apresentado como obra. O exemplo mais citado é a Fonte de Marcel Duchamp, de 1917: um mictório assinado com pseudônimo."}]},
+    {"dia": "Fim de semana", "tema": "Leitura longa", "classicos": [
+      {"obra": "A obra de arte na era de sua reprodutibilidade técnica", "autor": "Walter Benjamin", "ano": "1935–36",
+       "porque": "Ensaio sobre o que acontece com a arte quando fotografia e cinema permitem copiá-la sem limite. Base para quase toda discussão sobre imagem técnica, inclusive a imagem gerada por IA."}],
+     "conceitos": [{"nome": "Aura", "texto": "Para Benjamin, a presença única de uma obra no seu lugar e no seu tempo. A reprodução em massa enfraquece a aura, mas aproxima a obra de muito mais gente."}]}
+  ],
+  "regioes": [
+    {"regiao": "Povos indígenas das Américas", "nome": "Kene", "origem": "Povo Huni Kuin · Acre e Peru",
+     "texto": "Grafismos geométricos pintados no corpo, em tecidos, cestos e cerâmica. Os padrões têm nomes e significados e são transmitidos entre gerações.",
+     "guardar": "Um sistema de padrões que é ao mesmo tempo ornamento, linguagem e memória coletiva."},
+    {"regiao": "África e diáspora", "nome": "Adinkra", "origem": "Povo Akan · Gana e Costa do Marfim",
+     "texto": "Conjunto de símbolos gráficos estampados em tecidos, cerâmica e arquitetura. Cada símbolo carrega um provérbio ou uma ideia.",
+     "guardar": "Sankofa, o pássaro que olha para trás, quer dizer algo como \"voltar e buscar o que ficou\". Um sistema de ícones que carrega significado, não só forma."},
+    {"regiao": "Mundo árabe", "nome": "Caligrafia cúfica", "origem": "Mundo islâmico · desde o século VII",
+     "texto": "Um dos estilos mais antigos da escrita árabe, com traços retos e angulares. Na versão quadrada, as letras viram padrões geométricos em tijolos e azulejos.",
+     "guardar": "Texto que funciona como arquitetura e ornamento ao mesmo tempo: a fronteira entre tipografia e padrão some."},
+    {"regiao": "Ásia", "nome": "Wabi-sabi", "origem": "Japão",
+     "texto": "Estética que valoriza o imperfeito, o incompleto e o que mostra a passagem do tempo: a cerâmica irregular, a madeira gasta, a assimetria.",
+     "guardar": "Um contraponto ao acabamento perfeito: deixar a marca do processo à vista também é decisão de design."},
+    {"regiao": "Oceania e Pacífico", "nome": "Tapa", "origem": "Samoa, Tonga, Fiji e outras ilhas do Pacífico",
+     "texto": "Tecido feito de casca de árvore batida até virar uma folha fina, depois decorado com padrões pintados ou estampados. Usado em cerimônias e trocas.",
+     "guardar": "Um suporte inteiro criado à mão antes de receber a imagem: o material também faz parte da obra."},
+    {"regiao": "América Latina", "nome": "Neoconcretismo", "origem": "Brasil · Manifesto Neoconcreto, 1959",
+     "texto": "Movimento de Lygia Clark, Hélio Oiticica, Lygia Pape e outros artistas que levou a geometria da arte concreta para a experiência do corpo e da participação.",
+     "guardar": "Forma geométrica que só se completa quando alguém toca, veste ou atravessa a obra."}
+  ]
+}
