@@ -21,10 +21,10 @@ jobs:
       name: github-pages   # exigido pelo deploy-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main          # sempre a versão mais nova, mesmo ao reexecutar
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: Gerar edição (sem IA, 0 tokens)
@@ -37,9 +37,9 @@ jobs:
           git commit -m "Edição $(date -u +%F)" || echo "Nada novo"
           git pull --rebase -X theirs origin main
           git push origin HEAD:main
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
       - id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
